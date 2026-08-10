@@ -11,7 +11,7 @@ function getProfile(req, res) {
 }
 
 function updateMe(req, res) {
-  const user = users.find((u) => u.id === userId);
+  const user = users.find((u) => u.id === req.user.id);
 
   if (!user) {
     return res.status(404).json({ message: "Usuario no encontrado" });

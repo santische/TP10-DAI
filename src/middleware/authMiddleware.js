@@ -13,9 +13,9 @@ function authMiddleware(req, res, next) {
     const decoded = jwt.verify(token, process.env.JWT_SECRET);
     req.user = decoded;
     return next();
-  } catch (error) {
-    return res.status(403).json({ message: "Token invalido" });
-  }
+ } catch (error) {
+  return res.status(403).json({ message: "Token invalido" });
+}
 }
 
 module.exports = authMiddleware;
